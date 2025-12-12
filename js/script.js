@@ -434,12 +434,19 @@ function flipQuestion(newQuestionText) {
 // ==========================================================
 
 function endGame() {
+    console.log("🎮 endGame() called");
+    
     clearInterval(gameState.timerInterval);
     gameState.isPlaying = false;
     
     const accuracy = (gameState.correctAnswers / TOTAL_QUESTIONS) * 100;
+    const operation = window.gameOperations[gameState.selectedOperation];
+    const level = gameState.selectedLevel;
     
-    // Update result popup
+    console.log("📊 Operation:", operation?.name);
+    console.log("📊 Level:", level?.range);
+    
+    // Update statistik
     document.getElementById('finalScore').textContent = gameState.score;
     document.getElementById('correctAnswers').textContent = 
         `${gameState.correctAnswers}/${TOTAL_QUESTIONS}`;
@@ -449,25 +456,54 @@ function endGame() {
     document.getElementById('timeLeft').textContent = 
         `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     
-    document.getElementById('levelPlayed').textContent = gameState.selectedLevel.id;
+    document.getElementById('levelPlayed').textContent = level.id;
     
-    // Set message
+    // =============== PERBAIKAN: Update title dan subtitle ===============
+    // Tunggu sedikit untuk memastikan DOM siap
+    setTimeout(() => {
+        updateResultPopupText(operation, level);
+    }, 10);
+    // =============== END PERBAIKAN ===============
+    
+    // Set pesan
     let message = '';
     if (accuracy >= 90) {
-        message = 'Luar biasa! Kamu adalah Juara Matematika! 🏆';
+        message = 'Luar biasa! Jawabanmu hampir sempurna! 🏆';
     } else if (accuracy >= 70) {
-        message = 'Hebat! Kamu sangat pandai dalam matematika! ⭐';
+        message = 'Hebat! Kamu sudah menguasai materi ini! ⭐';
     } else if (accuracy >= 50) {
-        message = 'Bagus! Terus berlatih ya! ✨';
+        message = 'Bagus! Terus berlatih untuk hasil yang lebih baik! ✨';
     } else {
         message = 'Jangan menyerah! Coba lagi dan kamu akan lebih baik! 💪';
     }
+    
     document.getElementById('resultMessage').textContent = message;
     
-    // Show result popup
+    // Tampilkan popup
     setTimeout(() => {
         showResultPopup();
     }, 500);
+}
+
+// =============== FUNGSI BARU: Update text popup ===============
+function updateResultPopupText(operation, level) {
+    console.log("🔄 updateResultPopupText called");
+    
+    const resultTitle = document.getElementById('resultTitle');
+    const resultSubtitle = document.getElementById('resultSubtitle');
+    
+    console.log("🔍 resultTitle found:", !!resultTitle);
+    console.log("🔍 resultSubtitle found:", !!resultSubtitle);
+    
+    if (resultTitle) {
+        resultTitle.textContent = 'HASIL PENCAPAIAN';
+        console.log("✅ Updated resultTitle");
+    }
+    
+    if (resultSubtitle && operation && level) {
+        resultSubtitle.textContent = `Soal "${operation.name} ${level.range}" dari Bimbel Brilian`;
+        console.log("✅ Updated resultSubtitle:", resultSubtitle.textContent);
+    }
 }
 
 // ==========================================================
