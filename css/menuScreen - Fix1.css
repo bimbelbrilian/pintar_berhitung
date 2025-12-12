@@ -1,0 +1,470 @@
+/* =============== MENU UTAMA SCREEN =============== */
+#menuScreen {
+    background: linear-gradient(135deg, 
+        #667eea 0%, 
+        #764ba2 50%, 
+        #f093fb 100%);
+    color: var(--white);
+    position: fixed; /* Ganti ke fixed */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto; /* Boleh scroll jika perlu */
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER - 10% tinggi */
+.menu-header {
+    text-align: center;
+    padding: 10px 15px;
+    position: relative;
+    z-index: 1;
+    min-height: 70px; /* Minimum height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Tidak mengecil */
+}
+
+.menu-header h1 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 800;
+    margin-bottom: 5px;
+    background: linear-gradient(45deg, 
+        #FFD93D, 
+        #FF6B6B, 
+        #4D96FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.menu-subtitle {
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 4px 12px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* MAIN CONTENT - 85% tinggi */
+.operation-container {
+    flex: 1; /* Mengisi sisa ruang */
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    position: relative;
+    z-index: 1;
+    min-height: 0; /* Penting untuk child dengan overflow */
+    overflow: hidden; /* Hindari overflow */
+}
+
+.operation-selection {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    flex: 1; /* Mengisi container */
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    min-height: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.operation-title {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    flex-shrink: 0; /* Tidak mengecil */
+}
+
+.operations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 12px;
+    flex: 1; /* Mengisi sisa ruang */
+    min-height: 0; /* Penting untuk grid dalam flex */
+    height: 100%; /* Ambil semua tinggi */
+}
+
+/* WARNA-WARNI UNTUK SETIAP CARD */
+.operation-card {
+    background: white;
+    border-radius: 12px;
+    padding: 12px 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Warna berbeda untuk setiap card */
+.operation-card:nth-child(1) { background: linear-gradient(145deg, #FF9A8B, #FF6B6B); }
+.operation-card:nth-child(2) { background: linear-gradient(145deg, #FFD166, #FFD93D); }
+.operation-card:nth-child(3) { background: linear-gradient(145deg, #06D6A0, #6BCF7F); }
+.operation-card:nth-child(4) { background: linear-gradient(145deg, #118AB2, #4D96FF); }
+.operation-card:nth-child(5) { background: linear-gradient(145deg, #9D4BFF, #B388FF); }
+.operation-card:nth-child(6) { background: linear-gradient(145deg, #FF6B9D, #FF8E9E); }
+.operation-card:nth-child(7) { background: linear-gradient(145deg, #FFB347, #FFCC33); }
+.operation-card:nth-child(8) { background: linear-gradient(145deg, #7AE7C7, #06D6A0); }
+.operation-card:nth-child(9) { background: linear-gradient(145deg, #667eea, #764ba2); }
+
+.operation-card .operation-name,
+.operation-card .operation-description {
+    color: white !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.operation-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.operation-card.selected {
+    border: 3px solid white;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        inset 0 0 30px rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+.operation-icon {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.operation-name {
+    font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.operation-description {
+    font-size: clamp(0.7rem, 1.6vw, 0.85rem);
+    font-weight: 600;
+    opacity: 0.95;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2px 8px;
+    border-radius: 8px;
+}
+
+/* FOOTER - 5% tinggi, SELALU TERLIHAT */
+.menu-footer {
+    min-height: 60px; /* Minimum height yang jelas terlihat */
+    padding: 10px 15px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3); /* Background lebih gelap */
+    backdrop-filter: blur(15px);
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* TIDAK mengecil */
+    margin-top: auto; /* Dorong ke bawah */
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2); /* Shadow ke atas */
+}
+
+.developer-text {
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    color: rgba(255, 255, 255, 0.9); /* Lebih terang */
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.developer-link {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.developer-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* =============== RESPONSIVE MENU =============== */
+
+/* Tablet Landscape */
+@media (max-width: 1024px) and (orientation: landscape) {
+    .menu-header {
+        min-height: 60px;
+        padding: 8px 12px;
+    }
+    
+    .operation-container {
+        padding: 8px 12px;
+    }
+    
+    .operations-grid {
+        gap: 10px;
+    }
+    
+    .operation-card {
+        padding: 10px 6px;
+        gap: 5px;
+    }
+    
+    .menu-footer {
+        min-height: 50px;
+        padding: 8px 12px;
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) {
+    .menu-header {
+        min-height: 60px;
+        padding: 8px 12px;
+    }
+    
+    .menu-header h1 {
+        font-size: 1.4rem;
+    }
+    
+    .menu-subtitle {
+        font-size: 0.8rem;
+        padding: 3px 10px;
+    }
+    
+    .operation-container {
+        padding: 8px 12px;
+    }
+    
+    .operation-selection {
+        padding: 12px;
+        border-radius: 14px;
+    }
+    
+    .operations-grid {
+        gap: 10px;
+    }
+    
+    .operation-card {
+        padding: 10px 6px;
+        gap: 4px;
+    }
+    
+    .operation-icon {
+        font-size: 1.3rem;
+    }
+    
+    .operation-name {
+        font-size: 0.75rem;
+    }
+    
+    .operation-description {
+        font-size: 0.7rem;
+        padding: 2px 6px;
+    }
+    
+    .menu-footer {
+        min-height: 50px;
+        padding: 8px 12px;
+    }
+}
+
+/* Mobile Landscape */
+@media (max-width: 768px) and (orientation: landscape) {
+    .menu-header {
+        min-height: 50px;
+        padding: 5px 10px;
+    }
+    
+    .menu-header h1 {
+        font-size: 1.2rem;
+        margin-bottom: 3px;
+    }
+    
+    .menu-subtitle {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+    }
+    
+    .operation-container {
+        padding: 5px 10px;
+    }
+    
+    .operation-selection {
+        padding: 8px;
+    }
+    
+    .operations-grid {
+        gap: 6px;
+    }
+    
+    .operation-card {
+        padding: 6px 4px;
+        gap: 3px;
+    }
+    
+    .operation-icon {
+        font-size: 1.1rem;
+    }
+    
+    .operation-name {
+        font-size: 0.7rem;
+    }
+    
+    .operation-description {
+        font-size: 0.6rem;
+        padding: 1px 4px;
+    }
+    
+    .menu-footer {
+        min-height: 40px;
+        padding: 5px 10px;
+    }
+    
+    .developer-text {
+        font-size: 0.7rem;
+        margin-bottom: 3px;
+    }
+    
+    .developer-link {
+        padding: 4px 10px;
+        font-size: 0.7rem;
+    }
+}
+
+/* Mobile Portrait */
+@media (max-width: 480px) {
+    .menu-header {
+        min-height: 55px;
+        padding: 6px 10px;
+    }
+    
+    .menu-header h1 {
+        font-size: 1.3rem;
+    }
+    
+    .menu-subtitle {
+        font-size: 0.75rem;
+        padding: 2px 8px;
+    }
+    
+    .operation-container {
+        padding: 6px 10px;
+    }
+    
+    .operation-selection {
+        padding: 10px;
+        border-radius: 12px;
+    }
+    
+    .operations-grid {
+        gap: 8px;
+    }
+    
+    .operation-card {
+        padding: 8px 4px;
+        gap: 3px;
+        border-radius: 10px;
+    }
+    
+    .operation-icon {
+        font-size: 1.2rem;
+    }
+    
+    .operation-name {
+        font-size: 0.7rem;
+    }
+    
+    .operation-description {
+        font-size: 0.65rem;
+        padding: 1px 5px;
+    }
+    
+    .menu-footer {
+        min-height: 45px;
+        padding: 6px 10px;
+    }
+    
+    .developer-text {
+        font-size: 0.75rem;
+    }
+    
+    .developer-link {
+        padding: 5px 12px;
+        font-size: 0.75rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 375px) {
+    .operations-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 6px;
+    }
+    
+    .operation-card:nth-child(9) {
+        grid-column: span 2;
+        max-width: 140px;
+        justify-self: center;
+    }
+    
+    .menu-footer {
+        min-height: 40px;
+        padding: 5px 8px;
+    }
+}
+
+/* Very Small Height */
+@media (max-height: 600px) {
+    .menu-header {
+        min-height: 50px;
+        padding: 5px 10px;
+    }
+    
+    .menu-footer {
+        min-height: 35px;
+        padding: 4px 10px;
+    }
+    
+    .developer-text {
+        font-size: 0.7rem;
+        margin-bottom: 2px;
+    }
+    
+    .developer-link {
+        padding: 3px 10px;
+        font-size: 0.7rem;
+    }
+}
