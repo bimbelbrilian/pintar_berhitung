@@ -39,134 +39,6 @@
 }
 
 
-/* Styling untuk soal menghitung */
-.fruit-question {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.fruit-icon {
-    font-size: clamp(1.5rem, 3vw, 3rem);
-    line-height: 1.2;
-    margin: 10px 0;
-}
-
-.fruit-count {
-    font-size: 1.2rem;
-    color: #4D96FF;
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-.animal-question,
-.object-question {
-    text-align: center;
-    font-size: clamp(1.2rem, 2.5vw, 2.5rem);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.question-image-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin: 10px 0;
-    max-width: 100%;
-    overflow: hidden;
-}
-
-.question-text {
-    font-size: clamp(0.9rem, 2vw, 1.2rem);
-    color: #333;
-    font-weight: 600;
-    margin-top: 10px;
-}
-
-/* Styling khusus untuk hitung-hewan dan hitung-benda */
-.animal-question, .object-question {
-    text-align: center;
-    padding: 15px;
-}
-
-.question-image-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin: 15px 0;
-    min-height: 60px;
-    align-items: center;
-}
-
-.multiplier-indicator, .grid-indicator {
-    font-size: 1.2rem;
-    color: #666;
-    font-weight: 600;
-    margin: 10px 0;
-}
-
-.grid-text {
-    background: rgba(77, 150, 255, 0.1);
-    padding: 5px 10px;
-    border-radius: 10px;
-    border: 1px dashed #4D96FF;
-}
-
-.count-display, .group-display, .operation-display {
-    background: rgba(255, 217, 61, 0.1);
-    padding: 10px;
-    border-radius: 12px;
-    margin: 10px 0;
-    border: 1px solid rgba(255, 217, 61, 0.3);
-}
-
-.group {
-    display: inline-flex;
-    align-items: center;
-    margin: 0 10px;
-    padding: 8px 12px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.group-count {
-    margin-left: 8px;
-    font-weight: bold;
-    color: #4D96FF;
-}
-
-.object-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-    gap: 5px;
-    justify-items: center;
-    margin: 15px 0;
-}
-
-.count-note {
-    font-size: 0.9rem;
-    color: #666;
-    font-style: italic;
-    margin: 5px 0;
-}
-
-.operation-text {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #333;
-    margin: 15px 0;
-    background: rgba(107, 207, 127, 0.1);
-    padding: 10px;
-    border-radius: 10px;
-}
-
 /* Responsive untuk gambar banyak */
 @media (max-width: 768px) {
     .question-image-container {
@@ -309,7 +181,7 @@
 .question-box {
     background: white;
     border-radius: 15px;
-    padding: 20px;
+    padding: 5px;
     text-align: center;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     
@@ -726,6 +598,187 @@
 
 .error-message button:hover {
     transform: translateY(-2px);
+}
+
+
+
+/* hitung_buah.css - UKURAN VW KONSISTEN - NO QUESTION TEXT */
+
+/* =============== FRUIT QUESTION STYLES =============== */
+.question-box .fruit-question {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Fruit display dengan baris */
+.question-box .fruit-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    flex: 1;
+    overflow: hidden;
+    gap: 0; /* Hapus gap, gunakan margin pada fruit-row saja */
+}
+
+.question-box .fruit-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    line-height: 1;
+    gap: 0;
+}
+
+/* Spacing antar buah dalam baris - SAMA UNTUK SEMUA LEVEL */
+.question-box .fruit-row > * {
+    margin: 0 0.3vw; /* Spacing konsisten untuk semua level */
+    display: inline-block;
+    line-height: 1;
+}
+
+/* =============== CUSTOM HITUNG BUAH=============== */
+
+/* UKURAN FONT SAMA UNTUK SEMUA LEVEL (karena sudah dibagi baris) */
+.question-box .level-1 .fruit-display,
+.question-box .level-2 .fruit-display,
+.question-box .level-3 .fruit-display,
+.question-box .level-4 .fruit-display,
+.question-box .level-5 .fruit-display { 
+    font-size: 4vw !important; /* UKURAN SAMA */
+}
+
+/* MARGIN BARIS - SEDIKIT PERBEDAAN SAJA */
+.question-box .level-1 .fruit-row {
+    margin: 0.8vh 0;
+}
+.question-box .level-2 .fruit-row {
+    margin: 0.7vh 0;
+}
+.question-box .level-3 .fruit-row {
+    margin: 0.6vh 0;
+}
+.question-box .level-4 .fruit-row {
+    margin: 0.5vh 0;
+}
+.question-box .level-5 .fruit-row {
+    margin: 0.4vh 0;
+}
+
+/* =============== RESPONSIVE DESIGN =============== */
+
+/* Untuk layar kecil (mobile) */
+@media (max-width: 768px) {
+    /* UKURAN SAMA, TAPI SEDIKIT LEBIH BESAR DI MOBILE */
+    .question-box .level-1 .fruit-display,
+    .question-box .level-2 .fruit-display,
+    .question-box .level-3 .fruit-display,
+    .question-box .level-4 .fruit-display,
+    .question-box .level-5 .fruit-display { 
+        font-size: 3vw !important;
+    }
+    
+    /* Spacing buah di mobile */
+    .question-box .fruit-row > * {
+        margin: 0 0.4vw; /* Sedikit lebih besar di mobile */
+    }
+    
+    /* Margin baris di mobile */
+    .question-box .level-1 .fruit-row { margin: 0.7vh 0; }
+    .question-box .level-2 .fruit-row { margin: 0.6vh 0; }
+    .question-box .level-3 .fruit-row { margin: 0.5vh 0; }
+    .question-box .level-4 .fruit-row { margin: 0.4vh 0; }
+    .question-box .level-5 .fruit-row { margin: 0.3vh 0; }
+}
+
+/* Untuk mobile sangat kecil */
+@media (max-width: 480px) {
+    /* UKURAN SAMA, LEBIH BESAR LAGI DI MOBILE KECIL */
+    .question-box .level-1 .fruit-display,
+    .question-box .level-2 .fruit-display,
+    .question-box .level-3 .fruit-display,
+    .question-box .level-4 .fruit-display,
+    .question-box .level-5 .fruit-display { 
+        font-size: 3.5vw !important;
+    }
+    
+    /* Spacing buah di mobile kecil */
+    .question-box .fruit-row > * {
+        margin: 0 0.5vw;
+    }
+    
+    /* Margin baris di mobile kecil */
+    .question-box .level-1 .fruit-row { margin: 0.6vh 0; }
+    .question-box .level-2 .fruit-row { margin: 0.5vh 0; }
+    .question-box .level-3 .fruit-row { margin: 0.4vh 0; }
+    .question-box .level-4 .fruit-row { margin: 0.3vh 0; }
+    .question-box .level-5 .fruit-row { margin: 0.25vh 0; }
+}
+
+/* Untuk layar tinggi (desktop besar) */
+@media (min-width: 1200px) {
+    /* UKURAN SAMA, TAPI LEBIH KECIL DI DESKTOP BESAR */
+    .question-box .level-1 .fruit-display,
+    .question-box .level-2 .fruit-display,
+    .question-box .level-3 .fruit-display,
+    .question-box .level-4 .fruit-display,
+    .question-box .level-5 .fruit-display { 
+        font-size: 2vw !important;
+    }
+    
+    /* Spacing buah di desktop besar */
+    .question-box .fruit-row > * {
+        margin: 0 0.25vw;
+    }
+}
+
+/* Untuk layar sangat kecil (height rendah) */
+@media (max-height: 500px) {
+    /* Kurangi margin baris untuk layar pendek */
+    .question-box .level-1 .fruit-row { margin: 0.5vh 0; }
+    .question-box .level-2 .fruit-row { margin: 0.4vh 0; }
+    .question-box .level-3 .fruit-row { margin: 0.35vh 0; }
+    .question-box .level-4 .fruit-row { margin: 0.3vh 0; }
+    .question-box .level-5 .fruit-row { margin: 0.25vh 0; }
+}
+
+/* Untuk layar tinggi (height besar) */
+@media (min-height: 800px) {
+    /* Tambah margin baris untuk layar tinggi */
+    .question-box .level-1 .fruit-row { margin: 1vh 0; }
+    .question-box .level-2 .fruit-row { margin: 0.9vh 0; }
+    .question-box .level-3 .fruit-row { margin: 0.8vh 0; }
+    .question-box .level-4 .fruit-row { margin: 0.7vh 0; }
+    .question-box .level-5 .fruit-row { margin: 0.6vh 0; }
+}
+
+/* =============== OPTIMASI TAMPAKAN =============== */
+
+/* Pastikan buah tidak keluar dari container */
+.question-box .fruit-display {
+    max-height: 100%;
+    min-height: 0; /* Penting untuk flex child */
+}
+
+/* Atur line-height untuk konsistensi */
+.question-box .fruit-row > * {
+    vertical-align: middle;
+}
+
+/* Hapus semua animasi (jika ada) */
+.question-box .fruit-row > * {
+    animation: none !important;
 }
 
 /* Media Queries untuk Responsif */
