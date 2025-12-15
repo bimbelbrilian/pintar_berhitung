@@ -24,18 +24,20 @@
             return configs[levelNumber - 1] || configs[0];
         },
         
-        // ATURAN BARIS:
-        // 1-5 icon = 1 baris
-        // 6-10 icon = 2 baris  
-        // 11-15 icon = 3 baris
-        // 16-30 icon = 4 baris
+        // ATURAN BARIS BARU:
+        // 1-6 icon = 1 baris
+        // 7-12 icon = 2 baris  
+        // 13-18 icon = 3 baris
+        // 19-24 icon = 4 baris
+        // 25-30 icon = 4 baris
         
         // Fungsi untuk menghitung jumlah baris berdasarkan jumlah icon
         calculateRows: function(count) {
-            if (count <= 5) return 1;      // 1-5 icon = 1 baris
-            if (count <= 10) return 2;     // 6-10 icon = 2 baris
-            if (count <= 15) return 3;     // 11-15 icon = 3 baris
-            return 4;                      // 16-30 icon = 4 baris
+            if (count <= 6) return 1;      // 1-6 icon = 1 baris
+            if (count <= 12) return 2;     // 7-12 icon = 2 baris
+            if (count <= 18) return 3;     // 13-18 icon = 3 baris
+            if (count <= 24) return 4;     // 19-24 icon = 4 baris
+            return 5;                      // 25-30 icon = 5 baris
         },
         
         // Fungsi untuk menghitung icon per baris
@@ -81,19 +83,22 @@
                 remainingAnimals -= animalsInThisRow;
             }
             
-            // Tentukan ukuran font berdasarkan jumlah baris
+            / Tentukan ukuran font berdasarkan jumlah baris
             let fontSize;
             switch(rows) {
-                case 1: // 1 baris (1-5 icon)
-                    fontSize = '5vw';
+                case 1: // 1 baris (1-6 icon)
+                    fontSize = '3.5vw';
                     break;
-                case 2: // 2 baris (6-10 icon)
-                    fontSize = '4.5vw';
+                case 2: // 2 baris (7-12 icon)
+                    fontSize = '3.5vw';
                     break;
-                case 3: // 3 baris (11-15 icon)
-                    fontSize = '4vw';
+                case 3: // 3 baris (13-18 icon)
+                    fontSize = '3.5vw';
                     break;
-                case 4: // 4 baris (16-30 icon)
+                case 4: // 4 baris (19-24 icon)
+                    fontSize = '3.5vw';
+                    break;
+                case 5: // 5 baris (25-30 icon)
                 default:
                     fontSize = '3.5vw';
                     break;
