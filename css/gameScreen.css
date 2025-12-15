@@ -8,21 +8,34 @@
     height: 100%;
 }
 
+
 /* ===========================================
-   GAME HEADER SECTION (10% height)
+   GAME HEADER SECTION (10% height) - PERBAIKAN FINAL
    =========================================== */
 .game-header {
     background: var(--primary-gradient);
     color: var(--white);
     padding: 22px 25px;
-    text-align: center;
+    
     position: relative;
     overflow: hidden;
     height: 10%;
     min-height: 65px;
     flex-shrink: 0;
+    
+    /* >>> PERBAIKAN: Menggunakan Flexbox untuk Penataan Vertikal <<< */
+    display: flex; 
+    flex-direction: column; /* Mengatur item dari atas ke bawah */
+    
+    /* Memusatkan item di tengah secara vertikal */
+    justify-content: center; 
+    /* Memusatkan item di tengah secara horizontal */
+    align-items: center; 
 }
 
+/* ===========================================
+   EFEK VISUAL LATAR BELAKANG
+   =========================================== */
 .game-header::before {
     content: '';
     position: absolute;
@@ -35,23 +48,40 @@
         radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
 }
 
+/* ===========================================
+   GAYA JUDUL UTAMA (H2)
+   =========================================== */
 .game-header h2 {
     font-size: 1.8rem;
     font-weight: 700;
     position: relative;
-    z-index: 1;
+    z-index: 1; 
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     letter-spacing: 1px;
+    background: var(--warning-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0; 
 }
 
-.gameHeaderBimbel h3 {
-    font-size: 1.8rem;
+/* ===========================================
+   GAYA JUDUL BIMBEL (H3) - Menggunakan ID
+   =========================================== */
+#gameHeaderBimbel { 
+    font-size: 1.3rem;
     font-weight: 700;
     position: relative;
-    z-index: 1;
+    z-index: 2; 
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     letter-spacing: 1px;
+    
+    /* Penting: Menghilangkan margin bawaan H3 */
+    margin: 0;
+    
+    /* Tambahkan sedikit jarak antara H2 dan H3 jika diinginkan */
+    margin-top: 5px; 
 }
+
 
 /* ===========================================
    GAME INFO BAR (12% height)
