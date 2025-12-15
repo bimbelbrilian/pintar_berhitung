@@ -29,7 +29,7 @@
         // 7-12 icon = 2 baris  
         // 13-18 icon = 3 baris
         // 19-24 icon = 4 baris
-        // 25-30 icon = 4 baris
+        // 25-30 icon = 5 baris
         
         // Fungsi untuk menghitung jumlah baris berdasarkan jumlah icon
         calculateRows: function(count) {
@@ -83,7 +83,7 @@
                 remainingAnimals -= animalsInThisRow;
             }
             
-            / Tentukan ukuran font berdasarkan jumlah baris
+            // Tentukan ukuran font berdasarkan jumlah baris
             let fontSize;
             switch(rows) {
                 case 1: // 1 baris (1-6 icon)
