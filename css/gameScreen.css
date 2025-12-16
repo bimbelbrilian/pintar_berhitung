@@ -52,7 +52,7 @@
    GAYA JUDUL UTAMA (H2)
    =========================================== */
 .game-header h2 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
     position: relative;
     z-index: 1; 
@@ -68,7 +68,7 @@
    GAYA JUDUL BIMBEL (H3) - Menggunakan ID
    =========================================== */
 #gameHeaderBimbel { 
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     font-weight: 700;
     position: relative;
     z-index: 2; 
