@@ -2,7 +2,7 @@
 (function() {
     const operation = {
         id: 'hitung_buah',
-        name: 'Menghitung Buah',
+        name: 'Soal Menghitung Buah',
         icon: '🍎',
         description: 'Latihan berhitung dengan gambar buah-buahan',
         
