@@ -9,16 +9,16 @@ const POINTS_PER_CORRECT = 10;
 
 // Level Definitions
 const LEVELS = [
-    { id: 1, range: "Bilangan 1 - 5", min: 1, max: 5 },
-    { id: 2, range: "Bilangan 1 - 10", min: 1, max: 10 },
-    { id: 3, range: "Bilangan 1 - 20", min: 1, max: 20 },
-    { id: 4, range: "Bilangan 11 - 50", min: 11, max: 50 },
-    { id: 5, range: "Bilangan 21 - 100", min: 21, max: 100 },
-    { id: 6, range: "Bilangan 50 - 200", min: 50, max: 200 },
-    { id: 7, range: "Bilangan 100 - 500", min: 100, max: 500 },
-    { id: 8, range: "Bilangan 200 - 1.000", min: 200, max: 1000 },
-    { id: 9, range: "Bilangan 500 - 5.000", min: 500, max: 5000 },
-    { id: 10, range: "Bilangan 1.000 - 10.000", min: 1000, max: 10000 }
+    { id: 1, range: "1 sampai 5", min: 1, max: 5 },
+    { id: 2, range: "1 sampai  10", min: 1, max: 10 },
+    { id: 3, range: "1 sampai  20", min: 1, max: 20 },
+    { id: 4, range: "11 sampai  50", min: 11, max: 50 },
+    { id: 5, range: "21 sampai  100", min: 21, max: 100 },
+    { id: 6, range: "50 sampai  200", min: 50, max: 200 },
+    { id: 7, range: "100 sampai  500", min: 100, max: 500 },
+    { id: 8, range: "200 sampai  1.000", min: 200, max: 1000 },
+    { id: 9, range: "500 sampai  5.000", min: 500, max: 5000 },
+    { id: 10, range: "1.000 sampai  10.000", min: 1000, max: 10000 }
 ];
 
 // Game State
@@ -1186,11 +1186,33 @@ function createLevelCards() {
         card.dataset.levelId = level.id;
         card.tabIndex = 0;
         card.setAttribute('role', 'button');
-        card.setAttribute('aria-label', `Level ${level.id}: ${level.range}`);
+        
+        // TENTUKAN TEKS LEVEL BERDASARKAN OPERASI
+        let levelText = level.range; // Default text
+        
+        // PERUBAHAN: Untuk operasi pembagian_2, gunakan deskripsi khusus
+        if (gameState.selectedOperation === 'pembagian_2') {
+            const divisionLevels = {
+                1: "1 sampai 10",
+                2: "1 sampai 20", 
+                3: "11 sampai 20",
+                4: "21 sampai 50",
+                5: "50 sampai 100",
+                6: "100 sampai 250",
+                7: "250 sampai 1.000",
+                8: "1.000 sampai 2.500",
+                9: "2.500 sampai 5.000",
+                10: "5.000 sampai 10.000"
+            };
+            
+            levelText = divisionLevels[level.id] || level.range;
+        }
+        
+        card.setAttribute('aria-label', `Level ${level.id}: ${levelText}`);
         
         card.innerHTML = `
             <div class="level-number">LEVEL ${level.id}</div>
-            <div class="level-range">${level.range}</div>
+            <div class="level-range">${levelText}</div>
         `;
         
         // Add keyboard support
