@@ -5,7 +5,7 @@
 const CampuranSemuaOperation = {
     // Operation Identity
     id: 'campuran_semua',
-    name: 'Campuran',
+    name: 'Soal Operasi Hitung Campuran',
     description: 'Semua Operator (PEMDAS)',
     icon: '±×÷',
     
