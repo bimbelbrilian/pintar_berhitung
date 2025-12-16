@@ -2,7 +2,7 @@
 (function() {
     const operation = {
         id: 'hitung_benda',
-        name: 'Menghitung Benda',
+        name: 'Soal Menghitung Benda',
         icon: '🚗',
         description: 'Latihan berhitung dengan gambar benda sehari-hari',
         
