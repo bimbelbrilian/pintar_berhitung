@@ -5,7 +5,7 @@
 const CampuranKaliBagiOperation = {
     // Operation Identity
     id: 'campuran_kali_bagi',
-    name: 'Campuran',
+    name: 'Soal Perkalian Pembagian',
     description: 'Perkalian & Pembagian',
     icon: '×÷',
     
