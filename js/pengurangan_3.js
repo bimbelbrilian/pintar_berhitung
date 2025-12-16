@@ -5,7 +5,7 @@
 const Pengurangan3Operation = {
     // Operation Identity
     id: 'pengurangan_3',
-    name: 'Pengurangan',
+    name: 'Soal Pengurangan Ganda',
     description: '3 Bilangan',
     icon: '−−',
     
