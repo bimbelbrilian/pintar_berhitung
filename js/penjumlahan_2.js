@@ -5,7 +5,7 @@
 const Penjumlahan2Operation = {
     // Operation Identity
     id: 'penjumlahan_2',
-    name: 'Penjumlahan',
+    name: 'Soal Penjumlahan',
     description: '2 Bilangan',
     icon: '+',
     
