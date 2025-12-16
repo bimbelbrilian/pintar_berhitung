@@ -384,27 +384,27 @@
 
 /* =============== UKURAN ICON PER LEVEL - FIXED =============== */
 .question-box .level-1 .counting-display { 
-    font-size: 2.3vw !important;  
+    font-size: 5vh !important;  
     min-height: 70px !important;
 }
 
 .question-box .level-2 .counting-display { 
-    font-size: 2.3vw !important;
+    font-size: 5vh !important;
     min-height: 70px !important;
 }
 
 .question-box .level-3 .counting-display { 
-    font-size: 2.3vw !important;
+    font-size: 5vh !important;
     min-height: 70px !important;
 }
 
 .question-box .level-4 .counting-display { 
-    font-size: 2.3vw !important;
+    font-size: 5vh !important;
     min-height: 70px !important;
 }
 
 .question-box .level-5 .counting-display { 
-    font-size: 1.9vw !important;
+    font-size: 4vh !important;
     min-height: 70px !important;
 }
 
@@ -714,11 +714,11 @@
     }
     
     /* Counting rows - tablet */
-    .question-box .level-1 .counting-display { font-size: 2.3vw; }
-    .question-box .level-2 .counting-display { font-size: 2.3vw; }
-    .question-box .level-3 .counting-display { font-size: 2.3vw; }
-    .question-box .level-4 .counting-display { font-size: 2.3vw; }
-    .question-box .level-5 .counting-display { font-size: 1.9vw; }
+    .question-box .level-1 .counting-display { font-size: 5vh; }
+    .question-box .level-2 .counting-display { font-size: 5vh; }
+    .question-box .level-3 .counting-display { font-size: 5vh; }
+    .question-box .level-4 .counting-display { font-size: 5vh; }
+    .question-box .level-5 .counting-display { font-size: 4vh; }
     
     .question {
         font-size: clamp(1.5rem, 3.5vw, 3rem);
@@ -756,11 +756,11 @@
     }
     
     /* Counting rows - mobile */
-    .question-box .level-1 .counting-display { font-size: 2.3vw; }
-    .question-box .level-2 .counting-display { font-size: 2.3vw; }
-    .question-box .level-3 .counting-display { font-size: 2.3vw; }
-    .question-box .level-4 .counting-display { font-size: 2.3vw; }
-    .question-box .level-5 .counting-display { font-size: 1.9vw; }
+    .question-box .level-1 .counting-display { font-size: 5vh; }
+    .question-box .level-2 .counting-display { font-size: 5vh; }
+    .question-box .level-3 .counting-display { font-size: 5vh; }
+    .question-box .level-4 .counting-display { font-size: 5vh; }
+    .question-box .level-5 .counting-display { font-size: 4vh; }
     
     .question-box .counting-row {
         gap: 0.12vw !important;
@@ -838,11 +838,11 @@
     }
     
     /* Counting rows - desktop */
-    .question-box .level-1 .counting-display { font-size: 2.3vw; }
-    .question-box .level-2 .counting-display { font-size: 2.3vw; }
-    .question-box .level-3 .counting-display { font-size: 2.3vw; }
-    .question-box .level-4 .counting-display { font-size: 2.3vw; }
-    .question-box .level-5 .counting-display { font-size: 1.9vw; }
+    .question-box .level-1 .counting-display { font-size: 5vh; }
+    .question-box .level-2 .counting-display { font-size: 5vh; }
+    .question-box .level-3 .counting-display { font-size: 5vh; }
+    .question-box .level-4 .counting-display { font-size: 5vh; }
+    .question-box .level-5 .counting-display { font-size: 4vh; }
     
     .question-box .counting-row {
         gap: 0.25vw !important;
