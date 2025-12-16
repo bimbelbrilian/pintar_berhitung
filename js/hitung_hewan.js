@@ -2,7 +2,7 @@
 (function() {
     const operation = {
         id: 'hitung_hewan',
-        name: 'Menghitung Hewan',
+        name: 'Soal Menghitung Hewan',
         icon: '🐘',
         description: 'Latihan berhitung dengan gambar hewan',
         
