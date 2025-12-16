@@ -5,7 +5,7 @@
 const CampuranPlusMinusOperation = {
     // Operation Identity
     id: 'campuran_plus_minus',
-    name: 'Campuran',
+    name: 'Soal Penjumlahan Pengurangan',
     description: 'Penjumlahan & Pengurangan',
     icon: '±',
     
